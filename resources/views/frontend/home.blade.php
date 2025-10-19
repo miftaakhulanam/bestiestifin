@@ -282,7 +282,7 @@
                                     {{ \Illuminate\Support\Str::limit(strip_tags($article->content), 120) }}</p>
                                 <div class="mt-5 flex items-center justify-between">
                                     <div class="flex items-center gap-3">
-                                        <img src="{{ $avatar }}" class="w-9 h-9 rounded-full object-cover"
+                                        <img src="{{ $avatar }}" class="w-9 h-9 rounded-full bg-[#15281c]"
                                             alt="{{ $author }}">
                                         <div>
                                             <p class="text-sm font-semibold text-gray-800">{{ $author }}</p>
