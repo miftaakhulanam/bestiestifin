@@ -1,0 +1,70 @@
+name: 🚀 Deploy Laravel to DomaiNesia
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    name: 🎉 Deploy to bestiestifin.com
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+
+    - name: 📦 Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: mbstring, xml, ctype, iconv, intl, pdo_mysql
+        coverage: none
+
+    - name: 🔧 Install dependencies
+      run: |
+        composer install --no-dev --optimize-autoloader --no-interaction
+
+    - name: 📦 Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: 📦 Install npm dependencies
+      run: npm ci
+
+    - name: 🏗️ Build assets
+      run: npm run build
+
+    - name: 🔒 Set permissions
+      run: |
+        mkdir -p storage/framework/cache
+        mkdir -p storage/framework/views
+        mkdir -p storage/framework/sessions
+        chmod -R 775 storage bootstrap/cache
+
+    - name: 📤 Deploy to FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./
+        server-dir: /public_html/bestiestifin/
+        exclude: |
+          **/.git*
+          **/.github*
+          **/node_modules/**
+          **/tests/**
+          **/storage/framework/cache/**
+          **/storage/framework/views/**
+          **/storage/logs/**
+          .env.example
+          docker-compose.yml
+          README.md
+          package-lock.json
+          yarn.lock
+          webpack.mix.js
+          vite.config.js
+          phpunit.xml
+        dangerous-clean-slate: false
