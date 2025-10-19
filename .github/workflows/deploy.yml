@@ -16,8 +16,8 @@ jobs:
     - name: 📦 Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.1'
-        extensions: mbstring, xml, ctype, iconv, intl, pdo_mysql
+        php-version: '8.3'  # ⬅️ HARUS 8.3 SESUAI LOCAL
+        extensions: mbstring, xml, ctype, iconv, intl, pdo_mysql, fileinfo, curl, exif
         coverage: none
 
     - name: 🔧 Install dependencies
@@ -50,15 +50,12 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./
-        server-dir: /bestiestifin/
+        server-dir: /
         exclude: |
           **/.git*
           **/.github*
           **/node_modules/**
           **/tests/**
-          **/storage/framework/cache/**
-          **/storage/framework/views/**
-          **/storage/logs/**
           .env.example
           docker-compose.yml
           README.md
