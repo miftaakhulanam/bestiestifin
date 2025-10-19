@@ -16,16 +16,13 @@ jobs:
     - name: 📦 Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.2'  # ⬅️ PASTIKAN INI 8.2 atau 8.3
+        php-version: '8.3'  # ⬅️ HARUS 8.3 SESUAI LOCAL
         extensions: mbstring, xml, ctype, iconv, intl, pdo_mysql, fileinfo, curl, exif
         coverage: none
 
-    - name: 🔄 Update Composer
-      run: composer self-update
-
     - name: 🔧 Install dependencies
       run: |
-        composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
+        composer install --no-dev --optimize-autoloader --no-interaction
 
     - name: 📦 Install Node.js
       uses: actions/setup-node@v4
