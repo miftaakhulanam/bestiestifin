@@ -52,10 +52,14 @@ jobs:
         local-dir: ./
         server-dir: /
         exclude: |
-          **/.git*
-          **/.github*
+          **/.git/**
+          **/.github/**
           **/node_modules/**
+          **/vendor/**
           **/tests/**
+          **/storage/framework/cache/**
+          **/storage/framework/views/**
+          **/storage/logs/**
           .env.example
           docker-compose.yml
           README.md
@@ -64,4 +68,10 @@ jobs:
           webpack.mix.js
           vite.config.js
           phpunit.xml
+          composer.lock
+          .gitattributes
+          .gitignore
+        security: strict
+        state-name: ftp-deploy-state
+        log-level: minimal
         dangerous-clean-slate: false
