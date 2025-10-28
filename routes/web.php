@@ -20,14 +20,14 @@ Route::get('/articles/{slug}', [ArticleController::class, 'show'])->name('articl
 // Konsep STIFIn Routes (DB-driven by slug)
 Route::prefix('konsep')->group(function () {
     Route::get('/', [KonsepController::class, 'index'])->name('konsep.index');
-    // General slug route
-    Route::get('/{slug}', [KonsepController::class, 'show'])->name('konsep.show');
-    // Keep existing named routes for menus, pointing to show
+    // Specific routes first to avoid conflicts with general slug route
     Route::get('/sensing', fn() => app(KonsepController::class)->show('sensing'))->name('konsep.sensing');
     Route::get('/thinking', fn() => app(KonsepController::class)->show('thinking'))->name('konsep.thinking');
     Route::get('/intuiting', fn() => app(KonsepController::class)->show('intuiting'))->name('konsep.intuiting');
     Route::get('/feeling', fn() => app(KonsepController::class)->show('feeling'))->name('konsep.feeling');
     Route::get('/instinct', fn() => app(KonsepController::class)->show('instinct'))->name('konsep.instinct');
+    // General slug route (must be last to avoid conflicts)
+    Route::get('/{slug}', [KonsepController::class, 'show'])->name('konsep.show');
 });
 
 // Gallery Routes
