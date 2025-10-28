@@ -18,9 +18,13 @@ php artisan view:clear
 echo "Running migrations..."
 php artisan migrate --force
 
-# Seed the database with concepts
-echo "Seeding database..."
-php artisan db:seed --class=ConceptSeeder --force
+# Check and seed the database with concepts
+echo "Checking concepts..."
+php artisan concepts:check
+
+# Check routes
+echo "Checking routes..."
+php artisan routes:check-concepts
 
 # Cache configurations for production
 echo "Caching configurations..."
@@ -32,5 +36,9 @@ php artisan view:cache
 echo "Setting permissions..."
 chmod -R 755 storage
 chmod -R 755 bootstrap/cache
+
+# Test a concept route
+echo "Testing concept route..."
+php artisan tinker --execute="echo 'Testing thinking concept: '; \$concept = App\Models\Concept::where('slug', 'thinking')->first(); echo \$concept ? 'Found: ' . \$concept->title : 'Not found';"
 
 echo "Deployment completed successfully!"

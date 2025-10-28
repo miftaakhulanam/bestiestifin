@@ -14,8 +14,17 @@ class KonsepController extends Controller
 
     public function show(string $slug)
     {
-        $concept = Concept::query()->where('slug', $slug)->firstOrFail();
+        try {
+            $concept = Concept::query()->where('slug', $slug)->first();
 
-        return view('konsep.show', compact('concept'));
+            if (!$concept) {
+                abort(404, 'Concept not found');
+            }
+
+            return view('konsep.show', compact('concept'));
+        } catch (\Exception $e) {
+            \Log::error('Concept show error: ' . $e->getMessage());
+            abort(404, 'Concept not found');
+        }
     }
 }
