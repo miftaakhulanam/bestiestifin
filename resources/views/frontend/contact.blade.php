@@ -19,7 +19,7 @@
                             width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
 
-                        <iframe
+                        <iframe title="Lokasi Bestie STIFIn"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.076676874307!2d112.40855977932046!3d-7.117112974544938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77f1000d49e4ef%3A0x6c7c27ca674e59a0!2sAsfatour%20Travel%20-%20Office!5e0!3m2!1sid!2sid!4v1762068951201!5m2!1sid!2sid"
                             width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -40,7 +40,8 @@
                                 </span>
                                 <div>
                                     <p class="text-sm text-gray-500">Alamat</p>
-                                    <p class="font-semibold text-gray-900">Jl. Andansari No.108E, Ngaglik Timur, Sukorejo,
+                                    <p class="font-semibold text-gray-900">Jl. Andansari No.108E,<br> Ngaglik Timur,
+                                        Sukorejo,<br>
                                         Kec. Lamongan, 62215</p>
                                 </div>
                             </div>
