@@ -6,8 +6,18 @@
             <div class="max-w-4xl mx-auto">
                 <h1 class="text-4xl font-bold text-gray-900 text-center mb-8">{{ $concept->title }}</h1>
                 <div class="rounded-2xl overflow-hidden shadow-md mb-10">
-                    <img src="{{ $concept->image_path ? asset('img/' . $concept->image_path) : asset('img/kegiatan.jpg') }}"
-                        alt="{{ $concept->title }}" class="w-full h-72 md:h-[420px] object-cover">
+                    @if ($concept->image_path)
+                        @if (str_starts_with($concept->image_path, 'uploads/'))
+                            <img src="{{ Storage::url($concept->image_path) }}" alt="{{ $concept->title }}"
+                                class="w-full h-72 md:h-[420px] object-cover">
+                        @else
+                            <img src="{{ asset('img/' . $concept->image_path) }}" alt="{{ $concept->title }}"
+                                class="w-full h-72 md:h-[420px] object-cover">
+                        @endif
+                    @else
+                        <img src="{{ asset('img/kegiatan.jpg') }}" alt="{{ $concept->title }}"
+                            class="w-full h-72 md:h-[420px] object-cover">
+                    @endif
                 </div>
                 <div class="prose max-w-none">
                     {!! $concept->content !!}

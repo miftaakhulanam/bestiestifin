@@ -18,6 +18,10 @@ echo "🔐 Fixing file permissions..."
 chmod -R 755 storage
 chmod -R 755 bootstrap/cache
 
+# Create storage symlink
+echo "🔗 Creating storage symlink..."
+php artisan storage:link || echo "⚠️  Storage symlink already exists or failed"
+
 # Clear ALL caches
 echo "🧹 Clearing all caches..."
 php artisan cache:clear
