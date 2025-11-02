@@ -39,12 +39,13 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Pages\Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
-            ->widgets([
-                \App\Filament\Widgets\ArticleRanks::class,
-                \App\Filament\Widgets\DailyVisits::class,
-                \App\Filament\Widgets\MonthlyVisits::class,
-            ])
+            // Temporarily disable widgets discovery for debugging
+            // ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            // ->widgets([
+            //     \App\Filament\Widgets\ArticleRanks::class,
+            //     \App\Filament\Widgets\DailyVisits::class,
+            //     \App\Filament\Widgets\MonthlyVisits::class,
+            // ])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -58,6 +59,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->authGuard('web')
+            ->authPasswordBroker('users');
     }
 }
