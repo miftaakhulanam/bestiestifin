@@ -1,44 +1,53 @@
 #!/bin/bash
 
-# Deployment script for Bestie STIFIn
-echo "Starting deployment process..."
+# Final Deployment Script for Bestie STIFIn Production
+echo "🚀 Starting final deployment..."
+
+# Check if .env exists
+if [ ! -f ".env" ]; then
+    echo "❌ .env file not found! Please create one first."
+    exit 1
+fi
 
 # Install/update dependencies
-echo "Installing dependencies..."
-composer install --optimize-autoloader --no-dev
+echo "📦 Installing dependencies..."
+composer install --optimize-autoloader --no-dev --no-interaction
 
-# Clear and cache configurations
-echo "Clearing caches..."
+# Fix file permissions
+echo "🔐 Fixing file permissions..."
+chmod -R 755 storage
+chmod -R 755 bootstrap/cache
+
+# Clear ALL caches
+echo "🧹 Clearing all caches..."
 php artisan cache:clear
 php artisan config:clear
 php artisan route:clear
 php artisan view:clear
+php artisan optimize:clear
 
 # Run migrations
-echo "Running migrations..."
+echo "🗄️  Running migrations..."
 php artisan migrate --force
 
-# Check and seed the database with concepts
-echo "Checking concepts..."
-php artisan concepts:check
+# Seed database
+echo "📚 Seeding database..."
+php artisan production:admin admin@bestiestifin.com admin123
+php artisan db:seed --class=ConceptSeeder --force
 
-# Check routes
-echo "Checking routes..."
-php artisan routes:check-concepts
-
-# Cache configurations for production
-echo "Caching configurations..."
+# Optimize for production
+echo "⚡ Optimizing for production..."
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-# Set proper permissions
-echo "Setting permissions..."
-chmod -R 755 storage
-chmod -R 755 bootstrap/cache
+# Verify deployment
+echo "✅ Verifying deployment..."
+php artisan concepts:check
+php artisan routes:check-concepts
 
-# Test a concept route
-echo "Testing concept route..."
-php artisan tinker --execute="echo 'Testing thinking concept: '; \$concept = App\Models\Concept::where('slug', 'thinking')->first(); echo \$concept ? 'Found: ' . \$concept->title : 'Not found';"
-
-echo "Deployment completed successfully!"
+echo ""
+echo "🎉 Deployment completed successfully!"
+echo "🌐 Admin panel: https://bestiestifin.com/admin"
+echo "📧 Email: admin@bestiestifin.com"
+echo "🔑 Password: admin123"
