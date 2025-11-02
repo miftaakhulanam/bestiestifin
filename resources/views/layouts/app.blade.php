@@ -350,19 +350,19 @@
                     </ul>
 
                     <div class="flex space-x-4 mt-4">
-                        <a href="#"
+                        <a href="https://web.facebook.com/profile.php?id=61579797676730"
                             class="w-10 h-10 bg-[#fdc20f] rounded-full flex items-center justify-center hover:bg-[#15281c]">
                             <i class="fab fa-facebook-f text-[#15281c]"></i>
                         </a>
-                        <a href="#"
+                        <a href="https://www.instagram.com/bestie.stifin"
                             class="w-10 h-10 bg-[#fdc20f] rounded-full flex items-center justify-center hover:bg-[#15281c]">
                             <i class="fab fa-instagram text-[#15281c]"></i>
                         </a>
-                        <a href="#"
+                        <a href="https://www.tiktok.com/@bestie.stifin"
                             class="w-10 h-10 bg-[#fdc20f] rounded-full flex items-center justify-center hover:bg-[#15281c]">
-                            <i class="fab fa-twitter text-[#15281c]"></i>
+                            <i class="fab fa-tiktok text-[#15281c]"></i>
                         </a>
-                        <a href="#"
+                        <a href="https://www.youtube.com/@bestiestifin.official"
                             class="w-10 h-10 bg-[#fdc20f] rounded-full flex items-center justify-center hover:bg-[#15281c]">
                             <i class="fab fa-youtube text-[#15281c]"></i>
                         </a>
