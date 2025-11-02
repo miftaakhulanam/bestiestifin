@@ -81,11 +81,11 @@
                         </div>
 
                         <div class="mt-8 grid grid-cols-2 gap-3">
-                            <a href="tel:+62123456789"
+                            <a href="https://wa.me/6281333339755"
                                 class="inline-flex items-center justify-center h-12 rounded-xl bg-[#15281c] text-white font-semibold hover:bg-[#0f2a17] transition">
                                 <i class="fas fa-phone mr-2"></i> Telepon
                             </a>
-                            <a href="mailto:info@bestiestifin.com"
+                            <a href="mailto:bestiestifinofficial@gmail.com"
                                 class="inline-flex items-center justify-center h-12 rounded-xl border border-[#15281c] text-[#15281c] font-semibold hover:bg-[#15281c] hover:text-white transition">
                                 <i class="fas fa-envelope mr-2"></i> Email
                             </a>
