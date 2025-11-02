@@ -41,6 +41,42 @@
             color: #ffffff !important;
         }
 
+        /* Mobile menu styling when navbar is scrolled */
+        .navbar.scrolled #mobile-menu {
+            background-image: linear-gradient(to right, #15281c, #173d23) !important;
+        }
+
+        /* All mobile menu links - default to white when scrolled */
+        .navbar.scrolled #mobile-menu .mobile-menu-link {
+            color: #ffffff !important;
+        }
+
+        /* Active/selected links - keep yellow */
+        .navbar.scrolled #mobile-menu .mobile-menu-link.font-medium,
+        .navbar.scrolled #mobile-menu a.mobile-menu-link.font-medium {
+            color: #fdc20f !important;
+        }
+
+        /* Hover states */
+        .navbar.scrolled #mobile-menu .mobile-menu-link:hover {
+            color: #fdc20f !important;
+        }
+
+        /* Buttons in mobile menu */
+        .navbar.scrolled #mobile-menu button.mobile-menu-link {
+            color: #ffffff !important;
+        }
+
+        .navbar.scrolled #mobile-menu button.mobile-menu-link:hover,
+        .navbar.scrolled #mobile-menu button.mobile-menu-link.font-medium {
+            color: #fdc20f !important;
+        }
+
+        /* SVG icons inside mobile menu */
+        .navbar.scrolled #mobile-menu svg {
+            color: inherit !important;
+        }
+
         .stifin-card {
             transition: transform 0.3s ease;
         }
@@ -220,10 +256,10 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4">
                 <a href="{{ route('home') }}#home"
-                    class="block py-2 {{ request()->routeIs('home') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Home</a>
+                    class="block py-2 mobile-menu-link {{ request()->routeIs('home') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Home</a>
                 <div class="relative" x-data="{ open: false }">
                     <button @click="open = !open"
-                        class="w-full text-left py-2 {{ request()->routeIs('konsep.*') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }} flex items-center justify-between">
+                        class="w-full text-left py-2 mobile-menu-link {{ request()->routeIs('konsep.*') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }} flex items-center justify-between">
                         <span>Konsep STIFIn</span>
                         <svg class="w-4 h-4 transition-transform" :class="{ 'rotate-180': open }" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24">
@@ -231,30 +267,30 @@
                             </path>
                         </svg>
                     </button>
-                    <div class="pl-4 space-y-2 mt-2" x-show="open" x-collapse>
+                    <div class="pl-4 space-y-2 mt-2 z-999" x-show="open" x-collapse>
                         <a href="{{ route('konsep.sensing') }}"
-                            class="block py-2 {{ request()->routeIs('konsep.sensing') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Sensing
+                            class="block py-2 mobile-menu-link {{ request()->routeIs('konsep.sensing') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Sensing
                             (Si)</a>
                         <a href="{{ route('konsep.thinking') }}"
-                            class="block py-2 {{ request()->routeIs('konsep.thinking') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Thinking
+                            class="block py-2 mobile-menu-link {{ request()->routeIs('konsep.thinking') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Thinking
                             (Ti)</a>
                         <a href="{{ route('konsep.feeling') }}"
-                            class="block py-2 {{ request()->routeIs('konsep.feeling') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Feeling
+                            class="block py-2 mobile-menu-link {{ request()->routeIs('konsep.feeling') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Feeling
                             (Fi)</a>
                         <a href="{{ route('konsep.intuiting') }}"
-                            class="block py-2 {{ request()->routeIs('konsep.intuiting') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Intuiting
+                            class="block py-2 mobile-menu-link {{ request()->routeIs('konsep.intuiting') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Intuiting
                             (Ii)</a>
                         <a href="{{ route('konsep.instinct') }}"
-                            class="block py-2 {{ request()->routeIs('konsep.instinct') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Instinct
+                            class="block py-2 mobile-menu-link {{ request()->routeIs('konsep.instinct') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Instinct
                             (In)</a>
                     </div>
                 </div>
                 <a href="{{ route('articles.index') }}"
-                    class="block py-2 {{ request()->routeIs('articles.*') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Artikel</a>
+                    class="block py-2 mobile-menu-link {{ request()->routeIs('articles.*') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Artikel</a>
                 <a href="{{ route('galeri.index') }}"
-                    class="block py-2 {{ request()->routeIs('galeri.*') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Galeri</a>
+                    class="block py-2 mobile-menu-link {{ request()->routeIs('galeri.*') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Galeri</a>
                 <a href="{{ route('contact') }}"
-                    class="block py-2 {{ request()->routeIs('contact') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Kontak</a>
+                    class="block py-2 mobile-menu-link {{ request()->routeIs('contact') ? 'text-[#fdc20f] font-medium' : 'text-gray-700 hover:text-[#fdc20f]' }}">Kontak</a>
             </div>
         </nav>
     </header>
