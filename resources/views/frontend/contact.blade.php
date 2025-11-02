@@ -75,7 +75,7 @@
                                 </span>
                                 <div>
                                     <p class="text-sm text-gray-500">WhatsApp</p>
-                                    <p class="font-semibold text-gray-900">+62 812-3456-7890</p>
+                                    <p class="font-semibold text-gray-900">0813-3333-9755</p>
                                 </div>
                             </div>
                         </div>
