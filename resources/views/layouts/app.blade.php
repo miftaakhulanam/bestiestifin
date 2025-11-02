@@ -300,15 +300,16 @@
                     <ul class="space-y-2">
                         <li class="flex items-center">
                             <i class="fas fa-map-marker-alt mr-3 text-[#fdc20f]"></i>
-                            <span class="text-white">Jl. STIFIn No. 123, Jakarta</span>
+                            <span class="text-white">Jl. Andansari No.108E, Ngaglik Timur, Sukorejo, Kec. Lamongan,
+                                62215</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-phone mr-3 text-[#fdc20f]"></i>
-                            <span class="text-white">+62 123 456 789</span>
+                            <span class="text-white">0813-3333-9755</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope mr-3 text-[#fdc20f]"></i>
-                            <span class="text-white">info@bestiestifin.com</span>
+                            <span class="text-white">bestiestifinofficial@gmail.com</span>
                         </li>
                     </ul>
 
