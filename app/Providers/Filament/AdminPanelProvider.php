@@ -31,7 +31,6 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogo(asset('img/stifin-genetic.png'))
             ->brandLogoHeight('2.25rem')
             ->favicon(asset('img/stifin-genetic.png'))
-            ->viteTheme('resources/css/filament/admin/theme.css')
             ->colors([
                 'primary' => Color::Amber,
             ])
